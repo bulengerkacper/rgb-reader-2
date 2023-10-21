@@ -1,5 +1,6 @@
 extern crate image;
 use dioxus::prelude::*;
+use dioxus_desktop::{Config, WindowBuilder};
 
 pub mod analysis;
 
@@ -13,6 +14,11 @@ pub fn Calc(cx: Scope) -> Element {
     let grey = use_state(cx, || 0.0);
 
     cx.render(rsx! {
+    div {
+        width: "300px",
+        height: "300px",
+        border_width: "thick",
+        border_style: "solid solid solid solid",
         input {
             r#type:"file",
             accept: ".jpg, .jpeg, .png",
@@ -33,24 +39,65 @@ pub fn Calc(cx: Scope) -> Element {
                 }
             }
         }
+        for file in filenames.read().iter() {
+              "{file}"
+        }
          br {}
          "r avg: " "{ r }" br {}
          "g avg: " "{ g }" br {}
          "b avg: " "{ b }" br {}
          "grey avg: ""{ grey }" br {}
-
+    }
     })
 }
 
 pub fn App(cx: Scope) -> Element {
     cx.render(rsx! {
-        Calc {},
-        Calc {},
+        div {
+            display: "flex",
+            position: "relative",
+            table {
+                tr {
+                    td {
+                        Calc {}
+                    }
+                    td {
+                        Calc {}
+                    }
+                    td {
+                        Calc {}
+                    }
+                    td {
+                        Calc {}
+                    }
+                }
+                tr {
+                    td {
+                        Calc {}
+                    }
+                    td {
+                        Calc {}
+                    }
+                    td {
+                        Calc {}
+                    }
+                    td {
+                        Calc {}
+                    }
+                }
+
+            }
+
+        }
     })
 }
 
 pub fn main() {
-
-    dioxus_desktop::launch(App);
-
+    dioxus_desktop::launch_with_props(
+        App,(),
+        Config::new().with_window(
+            WindowBuilder::default()
+                .with_title("Spectrophotometer")
+                .with_inner_size(dioxus_desktop::LogicalSize::new(1300.0, 700.0)),
+        ));
 }
