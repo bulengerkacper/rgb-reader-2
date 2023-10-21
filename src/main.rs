@@ -18,6 +18,7 @@ pub fn Calc(cx: Scope) -> Element {
         width: "300px",
         height: "300px",
         border_width: "thick",
+        overflow:"scroll",
         border_style: "solid solid solid solid",
         input {
             r#type:"file",
