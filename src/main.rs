@@ -5,7 +5,7 @@ pub mod analysis;
 
 use analysis::RgbData;
 
-pub fn app(cx: Scope) -> Element {
+pub fn Calc(cx: Scope) -> Element {
     let filenames: &UseRef<Vec<String>> = use_ref(cx, Vec::new);
     let r = use_state(cx, || 0);
     let g = use_state(cx, || 0);
@@ -14,11 +14,8 @@ pub fn app(cx: Scope) -> Element {
 
     cx.render(rsx! {
         input {
-            // tell the input to pick a file
             r#type:"file",
-            // list the accepted extensions
             accept: ".jpg, .jpeg, .png",
-            // pick multiple files
             multiple: false,
             onchange: |evt| {
                 if let Some(file_engine) = &evt.files {
@@ -45,7 +42,15 @@ pub fn app(cx: Scope) -> Element {
     })
 }
 
+pub fn App(cx: Scope) -> Element {
+    cx.render(rsx! {
+        Calc {},
+        Calc {},
+    })
+}
+
 pub fn main() {
 
-    dioxus_desktop::launch(app);
+    dioxus_desktop::launch(App);
+
 }
