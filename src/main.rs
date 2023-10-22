@@ -47,7 +47,7 @@ pub fn Calc(cx: Scope) -> Element {
          "r avg: " "{ r }" br {}
          "g avg: " "{ g }" br {}
          "b avg: " "{ b }" br {}
-         "grey avg: ""{ grey }" br {}
+         "Scalled grey avg: ""{ grey }" br {}
     }
     })
 }
