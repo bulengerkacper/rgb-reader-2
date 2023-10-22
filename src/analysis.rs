@@ -36,7 +36,7 @@ impl RgbData {
     }
 
     pub fn to_grey(&self, r: u32, g: u32, b: u32) -> f32 {
-        return (0.299 * r as f32 + 0.587 * g as f32 + 0.114 * b as f32)/2.55;
+        return (0.299 * r as f32 + 0.587 * g as f32 + 0.114 * b as f32) / 2.55;
     }
 }
 

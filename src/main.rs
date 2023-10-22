@@ -55,50 +55,28 @@ pub fn Calc(cx: Scope) -> Element {
 pub fn App(cx: Scope) -> Element {
     cx.render(rsx! {
         div {
+            //table tr td
             display: "flex",
             position: "relative",
             table {
-                tr {
+                (0..5).map(|_| rsx!(
                     td {
                         Calc {}
                     }
-                    td {
-                        Calc {}
-                    }
-                    td {
-                        Calc {}
-                    }
-                    td {
-                        Calc {}
-                    }
-                }
-                tr {
-                    td {
-                        Calc {}
-                    }
-                    td {
-                        Calc {}
-                    }
-                    td {
-                        Calc {}
-                    }
-                    td {
-                        Calc {}
-                    }
-                }
-
+                ))
             }
-
         }
     })
 }
 
 pub fn main() {
     dioxus_desktop::launch_with_props(
-        App,(),
+        App,
+        (),
         Config::new().with_window(
             WindowBuilder::default()
                 .with_title("Spectrophotometer")
-                .with_inner_size(dioxus_desktop::LogicalSize::new(1300.0, 700.0)),
-        ));
+                .with_inner_size(dioxus_desktop::LogicalSize::new(1600.0, 600.0)),
+        ),
+    );
 }
