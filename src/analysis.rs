@@ -3,12 +3,7 @@ extern crate image;
 use crate::image::GenericImageView;
 
 #[derive(Debug)]
-pub struct RgbData {
-    r_avg: u32,
-    g_avg: u32,
-    b_avg: u32,
-    pixels_number: u32,
-}
+pub struct RgbData {}
 
 impl RgbData {
     pub fn read_image_sizes(&self, filename: &str) -> (u32, u32) {
@@ -42,11 +37,6 @@ impl RgbData {
 
 impl Default for RgbData {
     fn default() -> RgbData {
-        RgbData {
-            r_avg: 0,
-            g_avg: 0,
-            b_avg: 0,
-            pixels_number: 0,
-        }
+        RgbData {}
     }
 }

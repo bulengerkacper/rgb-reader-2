@@ -53,18 +53,37 @@ pub fn Calc(cx: Scope) -> Element {
     })
 }
 
-pub fn App(cx: Scope) -> Element {
+pub fn app(cx: Scope) -> Element {
     cx.render(rsx! {
         div {
-            //table tr td
-            display: "flex",
-            position: "relative",
-            table {
-                (0..5).map(|_| rsx!(
-                    td {
-                        Calc {}
-                    }
-                ))
+            background: "grey",
+            div {
+                //table tr td
+                display: "flex",
+                position: "relative",
+                background: "grey",
+                table {
+                    (0..5).map(|_| rsx!(
+                        td {
+                            Calc {}
+                        }
+                    ))
+                }
+            }
+            div {
+                Chart {}
+    
+            }
+        }
+
+    })
+}
+
+pub fn Chart(cx: Scope) -> Element {
+    cx.render(rsx! {
+        div {
+            a {
+                "dasd"
             }
         }
     })
@@ -72,7 +91,7 @@ pub fn App(cx: Scope) -> Element {
 
 pub fn main() {
     dioxus_desktop::launch_with_props(
-        App,
+        app,
         (),
         Config::new().with_window(
             WindowBuilder::default()

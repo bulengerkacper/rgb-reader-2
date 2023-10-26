@@ -8,5 +8,6 @@ edition = "2021"
 [dependencies]
 dioxus = { version = "0.4" }
 dioxus-desktop = { version = "0.4" }
+
 image = "0.23.12"
 fltk = "^0.15.3"
